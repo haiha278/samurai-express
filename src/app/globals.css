@@ -25,3 +25,46 @@ body {
     text-wrap: balance;
   }
 }
+
+.menu-hover:hover {
+  background-color: white;
+  color: rgba(64, 121, 176, 255);
+  padding: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.header-selection {
+  background-color: white;
+  color: rgba(64, 121, 176, 255);
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.circle-div {
+  width: 3rem; /* Tương đương với w-12 */
+  height: 3rem; /* Tương đương với h-12 */
+  background-color: rgba(
+    64,
+    121,
+    176,
+    1
+  ); /* Tương đương với bg-[rgba(64,121,176,255)] */
+  border-radius: 9999px; /* Tương đương với rounded-full */
+  display: flex; /* Tương đương với flex */
+  align-items: center; /* Tương đương với items-center */
+  justify-content: center; /* Tương đương với justify-center */
+  color: #fff; /* Tương đương với text-white */
+  font-weight: bold; /* Tương đương với font-bold */
+  font-size: 30px;
+}
+
+.unique-li {
+  font-family: Arima;
+  color: rgba(64, 121, 176, 1);
+  font-size: 25px;
+}
