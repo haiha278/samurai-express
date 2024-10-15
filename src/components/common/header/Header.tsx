@@ -64,7 +64,7 @@ export const Header = () => {
         </div>
         <div>
           <FontAwesomeIcon icon={faPhone} className="text-white mr-[10px]" />
-          <div className="inline-block">Hotline: 0328591807</div>
+          <div className="inline-block">Hotline: 0347466788</div>
         </div>
       </div>
     </div>
