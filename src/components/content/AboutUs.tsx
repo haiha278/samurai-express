@@ -15,13 +15,14 @@ export const AboutUs = () => {
           Đến hệ thống Tiệm ăn Nhật cho người Việt
         </div>
         <div className="max-w-[80%] text-[20px]">
-          Từ một huyền thoại mới ở Hà Nội - Samurai Express. Hòa quyện giữa
-          truyền thống và hiện đại, chúng tôi gửi tâm hồn vào mỗi miếng sushi,
-          mỗi lát sashimi. Samurai Express mở cửa mỗi ngày, không chỉ để thưởng
-          thức ẩm thực tinh tế, mà còn để khám phá và đồng hành cùng những trái
-          tim đam mê. Hãy cùng chúng tôi, khám phá câu chuyện đằng sau mỗi món
-          ăn, để những hương vị tại Samurai Express trở thành kỷ niệm đáng nhớ
-          trong cuộc sống của bạn.
+          Chúng tôi tự hào mang đến những bữa ăn nhanh, tiện lợi nhưng vẫn giữ
+          được chất lượng, cùng mức giá hợp lý, để bất kỳ ai cũng có thể thưởng
+          thức. Hãy tưởng tượng, sau một ngày làm việc bận rộn, bạn bước vào
+          Samurai Express, chọn cho mình những box sushi tươi mới. Tất cả chỉ
+          mất vài phút, nhưng sự hài lòng sẽ kéo dài mãi. Samurai Express không
+          chỉ là một nhà hàng, mà là cây cầu nối giữa hai nền văn hóa, mang đến
+          cho bạn những trải nghiệm ẩm thực tuyệt vời mà không làm bạn phải đắn
+          đo về giá cả.
         </div>
       </div>
     </div>
