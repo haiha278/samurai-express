@@ -1,3 +1,4 @@
+"use client";
 import { useSwiper } from "swiper/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";

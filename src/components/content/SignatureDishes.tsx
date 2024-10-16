@@ -20,7 +20,16 @@ import Menu14 from "@/assets/image/menu14.png";
 import Menu15 from "@/assets/image/menu15.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-const items = [
+import { useCart } from "@/hook/CartContext";
+
+interface Item {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+}
+
+const items: Item[] = [
   { id: 1, name: "Surimi Nigiri", price: 9000, image: Menu1 },
   { id: 2, name: "Unagi Nigiri", price: 21000, image: Menu2 },
   { id: 3, name: "Surimi Mayo Gunkan", price: 9000, image: Menu3 },
@@ -44,6 +53,13 @@ const items = [
 ];
 
 export const SignatureDishes = () => {
+  const { addItemToCart } = useCart();
+
+  const handleAddToCart = (item: Item) => {
+    console.log("called");
+    addItemToCart(item);
+  };
+
   return (
     <div className="bg-gray-50 flex flex-col gap-[30px]">
       <div className="text-[rgba(64,121,176,255)] font-serif text-[40px] text-center pt-[20px]">
@@ -81,7 +97,8 @@ export const SignatureDishes = () => {
                 </div>
                 <FontAwesomeIcon
                   icon={faShoppingCart}
-                  className="text-gray-600 text-[25px]"
+                  onClick={() => handleAddToCart(item)}
+                  className="text-gray-600 text-[25px] hover:cursor-pointer"
                 />
               </div>
             </SwiperSlide>

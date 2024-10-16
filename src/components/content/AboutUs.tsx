@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import AboutUsImage from "@/assets/image/about us.png";
 export const AboutUs = () => {

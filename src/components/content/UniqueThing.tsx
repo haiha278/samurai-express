@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import ImageForUnique from "@/assets/image/unique_image.png";
 export const UniqueThing = () => {
