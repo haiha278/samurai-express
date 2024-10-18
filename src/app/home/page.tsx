@@ -9,7 +9,7 @@ import { UniqueThing } from "@/components/content/UniqueThing";
 export default function Home() {
   return (
     <div>
-      <div>
+      <div className="fixed w-full top-0 left-0 z-[1000]">
         <Header />
       </div>
       <div>

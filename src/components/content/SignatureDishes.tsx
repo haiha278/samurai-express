@@ -30,9 +30,9 @@ interface Item {
 }
 
 const items: Item[] = [
-  { id: 1, name: "Surimi Nigiri", price: 9000, image: Menu1 },
-  { id: 2, name: "Unagi Nigiri", price: 21000, image: Menu2 },
-  { id: 3, name: "Surimi Mayo Gunkan", price: 9000, image: Menu3 },
+  { id: 1, name: "Wakame Salad", price: 49000, image: Menu11 },
+  { id: 2, name: "Sake Set", price: 95000, image: Menu12 },
+  { id: 3, name: "Kanzunoko Nishin Sashimi Set", price: 105000, image: Menu13 },
   { id: 4, name: "Maguro Mayo Gunkan", price: 12000, image: Menu4 },
   { id: 5, name: "Sake Mayo Gunkan", price: 18000, image: Menu5 },
   { id: 6, name: "Wakame Gunkan", price: 9000, image: Menu6 },
@@ -40,13 +40,13 @@ const items: Item[] = [
   { id: 8, name: "Maki Set", price: 30000, image: Menu8 },
   { id: 9, name: "California Roll", price: 50000, image: Menu9 },
   { id: 10, name: "Kare Tonkatsu", price: 65000, image: Menu10 },
-  { id: 11, name: "Wakame Salad", price: 49000, image: Menu11 },
-  { id: 12, name: "Sake Set", price: 95000, image: Menu12 },
+  { id: 11, name: "Surimi Nigiri", price: 9000, image: Menu1 },
+  { id: 12, name: "Unagi Nigiri", price: 21000, image: Menu2 },
   {
     id: 13,
-    name: "Kanzunoko Nishin Sashimi Set",
-    price: 105000,
-    image: Menu13,
+    name: "Surimi Mayo Gunkan",
+    price: 9000,
+    image: Menu3,
   },
   { id: 14, name: "Miso Soup", price: 25000, image: Menu14 },
   { id: 15, name: "Seaweed", price: 10000, image: Menu15 },
@@ -56,7 +56,6 @@ export const SignatureDishes = () => {
   const { addItemToCart } = useCart();
 
   const handleAddToCart = (item: Item) => {
-    console.log("called");
     addItemToCart(item);
   };
 

@@ -1,5 +1,6 @@
+import { stat } from "fs";
 import { createContext, useReducer, useContext, ReactNode } from "react";
-
+import { useEffect } from "react";
 // Định nghĩa kiểu cho Item
 interface Item {
   id: number;
@@ -88,9 +89,31 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     dispatch({ type: "CLEAR_CART" });
   };
 
+  const totalPriceOfEachItem = (item: Item) => {
+    return item.price * (item.quantity || 1);
+  };
+
+  const totalPriceOfAllItem = () => {
+    const totalPrice = state.items.reduce(
+      (total, item) => total + totalPriceOfEachItem(item),
+      0
+    );
+    return totalPrice;
+  };
+
+  useEffect(() => {
+    console.log("Cart State Updated:", state.items);
+    console.log("Total:", totalPriceOfAllItem());
+  }, [state.items]); // Sử dụng useEffect để theo dõi thay đổi trong state.items
+
   return (
     <CartContext.Provider
-      value={{ cart: state, addItemToCart, removeItemFromCart, clearCart }}
+      value={{
+        cart: state,
+        addItemToCart,
+        removeItemFromCart,
+        clearCart,
+      }}
     >
       {children}
     </CartContext.Provider>
