@@ -80,3 +80,15 @@ body {
   width: 100%;
   z-index: 1000;
 }
+
+.border-button {
+  height: 28px;
+  width: 28px;
+  border: rgba(64, 121, 176, 255) 2px solid;
+  border-radius: 50%;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(64, 121, 176, 255);
+}

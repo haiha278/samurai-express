@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        topicColor: "rgba(64,121,176,255)",
       },
     },
   },

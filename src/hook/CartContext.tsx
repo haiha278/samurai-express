@@ -69,6 +69,7 @@ const CartContext = createContext<
       addItemToCart: (item: Item) => void;
       removeItemFromCart: (id: number) => void;
       clearCart: () => void;
+      totalItemOfCart: () => void;
     }
   | undefined
 >(undefined);
@@ -101,6 +102,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     return totalPrice;
   };
 
+  const totalItemOfCart = () => {
+    return state.items.reduce((total, item) => total + (item.quantity || 1), 0);
+  };
+
   useEffect(() => {
     console.log("Cart State Updated:", state.items);
     console.log("Total:", totalPriceOfAllItem());
@@ -113,6 +118,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         addItemToCart,
         removeItemFromCart,
         clearCart,
+        totalItemOfCart,
       }}
     >
       {children}
