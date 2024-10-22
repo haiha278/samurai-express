@@ -8,7 +8,7 @@ import { useCart } from "@/hook/CartContext";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 export const Header = () => {
   const [selectedMenu, setSelectedMenu] = useState<string | null>("menu1");
-  const { totalItemOfCart } = useCart();
+  const { totalItemOfCart, handleShowCartDetail } = useCart();
 
   return (
     <div className="bg-[rgba(64,121,176,255)] ">
@@ -43,14 +43,6 @@ export const Header = () => {
           </div>
           <div
             className={`menu-hover ${
-              selectedMenu === "menu4" ? "header-selection" : ""
-            }`}
-            onClick={() => setSelectedMenu("menu4")}
-          >
-            Đặt Bàn
-          </div>
-          <div
-            className={`menu-hover ${
               selectedMenu === "menu5" ? "header-selection" : ""
             }`}
             onClick={() => setSelectedMenu("menu5")}
@@ -67,10 +59,13 @@ export const Header = () => {
           </div>
         </div>
         <div className="flex items-center">
-          <div className="mr-[60px] flex items-center gap-[5px]">
+          <div
+            className="mr-[60px] flex items-center gap-[5px] cursor-pointer"
+            onClick={handleShowCartDetail}
+          >
             <FontAwesomeIcon
               icon={faShoppingCart}
-              className="text-white text-2xl cursor-pointer"
+              className="text-white text-"
             />
             <div className=" bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">
               {totalItemOfCart()}

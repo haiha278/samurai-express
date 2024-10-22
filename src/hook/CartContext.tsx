@@ -1,5 +1,11 @@
 import { stat } from "fs";
-import { createContext, useReducer, useContext, ReactNode } from "react";
+import {
+  createContext,
+  useReducer,
+  useContext,
+  ReactNode,
+  useState,
+} from "react";
 import { useEffect } from "react";
 // Định nghĩa kiểu cho Item
 interface Item {
@@ -70,6 +76,8 @@ const CartContext = createContext<
       removeItemFromCart: (id: number) => void;
       clearCart: () => void;
       totalItemOfCart: () => void;
+      handleShowCartDetail: () => void;
+      showCartDetail: boolean;
     }
   | undefined
 >(undefined);
@@ -77,6 +85,12 @@ const CartContext = createContext<
 // Cart provider để bao bọc toàn bộ ứng dụng
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
+
+  const [showCartDetail, setShowCartDetail] = useState<boolean>(false);
+
+  const handleShowCartDetail = () => {
+    setShowCartDetail(!showCartDetail);
+  };
 
   const addItemToCart = (item: Item) => {
     dispatch({ type: "ADD_ITEM", payload: item });
@@ -106,10 +120,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     return state.items.reduce((total, item) => total + (item.quantity || 1), 0);
   };
 
-  useEffect(() => {
-    console.log("Cart State Updated:", state.items);
-    console.log("Total:", totalPriceOfAllItem());
-  }, [state.items]); // Sử dụng useEffect để theo dõi thay đổi trong state.items
+  useEffect(() => {}, [state.items]); // Sử dụng useEffect để theo dõi thay đổi trong state.items
 
   return (
     <CartContext.Provider
@@ -119,6 +130,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         removeItemFromCart,
         clearCart,
         totalItemOfCart,
+        handleShowCartDetail,
+        showCartDetail,
       }}
     >
       {children}
