@@ -92,3 +92,14 @@ body {
   justify-content: center;
   color: rgba(64, 121, 176, 255);
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Độ rộng thanh cuộn */
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}

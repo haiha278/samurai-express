@@ -7,8 +7,20 @@ import { Gallery } from "@/components/content/Gallery";
 import { SignatureDishes } from "@/components/content/SignatureDishes";
 import { UniqueThing } from "@/components/content/UniqueThing";
 import { useCart } from "@/hook/CartContext";
+import { useEffect } from "react";
 export default function Home() {
   const { showCartDetail, handleShowCartDetail } = useCart();
+
+  useEffect(() => {
+    if (showCartDetail) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [showCartDetail]);
 
   return (
     <div className="relative ">
@@ -30,10 +42,10 @@ export default function Home() {
       {showCartDetail && (
         <>
           <div
-            className="fixed top-0 left-0 w-full h-full bg-gray-500 opacity-75 z-[1000]"
+            className="fixed top-0 left-0 w-full h-full bg-gray-500 opacity-50 z-[1000]"
             onClick={handleShowCartDetail}
           ></div>
-          <div className="w-[20%] h-full absolute top-0 right-0 bg-white z-[1001] overflow-auto">
+          <div className="w-[25%] h-full fixed top-0 right-0 bg-white z-[1001] overflow-y-auto">
             <ShoppingCartDetail />
           </div>
         </>

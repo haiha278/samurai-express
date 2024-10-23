@@ -78,6 +78,8 @@ const CartContext = createContext<
       totalItemOfCart: () => void;
       handleShowCartDetail: () => void;
       showCartDetail: boolean;
+      totalPriceOfEachItem: (item: Item) => void;
+      totalPriceOfAllItem: () => void;
     }
   | undefined
 >(undefined);
@@ -113,7 +115,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       (total, item) => total + totalPriceOfEachItem(item),
       0
     );
-    return totalPrice;
+    return totalPrice.toLocaleString("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    });
   };
 
   const totalItemOfCart = () => {
@@ -132,6 +137,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         totalItemOfCart,
         handleShowCartDetail,
         showCartDetail,
+        totalPriceOfEachItem,
+        totalPriceOfAllItem,
       }}
     >
       {children}
