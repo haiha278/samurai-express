@@ -10,6 +10,8 @@ export const ShoppingCartDetail = () => {
     totalPriceOfAllItem,
     totalItemOfCart,
     removeItemFromCart,
+    addItemToCart,
+    decreaseQuantityOfExistItem,
   } = useCart();
   return (
     <div className="p-[20px] flex flex-col h-full">
@@ -39,11 +41,21 @@ export const ShoppingCartDetail = () => {
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex flex-row gap-[20px] items-center">
-                  <button className="border-button">-</button>
+                  <button
+                    className="border-button"
+                    onClick={() => decreaseQuantityOfExistItem(item)}
+                  >
+                    -
+                  </button>
                   <div className="font-bold text-[25px] text-topicColor">
                     {item.quantity}
                   </div>
-                  <button className="border-button">+</button>
+                  <button
+                    className="border-button"
+                    onClick={() => addItemToCart(item)}
+                  >
+                    +
+                  </button>
                 </div>
                 <div className="text-[20px]">
                   {totalPriceOfEachItem(item).toLocaleString("vi-VN", {

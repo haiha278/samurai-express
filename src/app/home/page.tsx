@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "@/components/common/footer/Footer";
 import { Header } from "@/components/common/header/Header";
 import { ShoppingCartDetail } from "@/components/common/shopping-cart/ShoppingCartDetail";
 import { AboutUs } from "@/components/content/AboutUs";
@@ -27,7 +28,7 @@ export default function Home() {
       <div className="fixed w-full top-0 left-0 z-[1000]">
         <Header />
       </div>
-      <div>
+      <div className="mt-[80px]">
         <AboutUs />
       </div>
       <div className="bg-[rgba(247,242,238,255)]">
@@ -50,6 +51,9 @@ export default function Home() {
           </div>
         </>
       )}
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }

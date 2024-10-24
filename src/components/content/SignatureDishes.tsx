@@ -94,11 +94,13 @@ export const SignatureDishes = () => {
                     })}
                   </div>
                 </div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer"
-                />
+                <div>
+                  <FontAwesomeIcon
+                    icon={faShoppingCart}
+                    onClick={() => handleAddToCart(item)}
+                    className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
+                  />
+                </div>
               </div>
             </SwiperSlide>
           ))}

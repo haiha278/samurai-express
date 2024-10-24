@@ -1,4 +1,3 @@
-import { stat } from "fs";
 import {
   createContext,
   useReducer,
@@ -25,14 +24,14 @@ interface CartState {
 type CartAction =
   | { type: "ADD_ITEM"; payload: Item }
   | { type: "REMOVE_ITEM"; payload: number }
-  | { type: "CLEAR_CART" };
+  | { type: "CLEAR_CART" }
+  | { type: "DECREASE_QUANTITY"; payload: Item };
 
 // Trạng thái ban đầu của giỏ hàng
 const initialState: CartState = {
   items: [],
 };
 
-// Reducer function để quản lý các hành động của giỏ hàng
 const cartReducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
     case "ADD_ITEM":
@@ -60,6 +59,18 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
         items: state.items.filter((item) => item.id !== action.payload),
       };
 
+    case "DECREASE_QUANTITY":
+      return {
+        ...state,
+        items: state.items
+          .map((item) =>
+            item.id === action.payload.id
+              ? { ...item, quantity: (item.quantity || 1) - 1 }
+              : item
+          )
+          .filter((item) => item.quantity !== 0),
+      };
+
     case "CLEAR_CART":
       return { ...state, items: [] };
 
@@ -80,6 +91,7 @@ const CartContext = createContext<
       showCartDetail: boolean;
       totalPriceOfEachItem: (item: Item) => void;
       totalPriceOfAllItem: () => void;
+      decreaseQuantityOfExistItem: (item: Item) => void;
     }
   | undefined
 >(undefined);
@@ -96,6 +108,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addItemToCart = (item: Item) => {
     dispatch({ type: "ADD_ITEM", payload: item });
+  };
+
+  const decreaseQuantityOfExistItem = (item: Item) => {
+    dispatch({ type: "DECREASE_QUANTITY", payload: item });
   };
 
   const removeItemFromCart = (id: number) => {
@@ -139,6 +155,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         showCartDetail,
         totalPriceOfEachItem,
         totalPriceOfAllItem,
+        decreaseQuantityOfExistItem,
       }}
     >
       {children}

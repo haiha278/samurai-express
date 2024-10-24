@@ -103,3 +103,12 @@ body {
 .custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
+
+.footer-item {
+  cursor: pointer;
+}
+
+.footer-item:hover {
+  font-size: 17px;
+  font-weight: bolder;
+}
