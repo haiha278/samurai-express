@@ -1,14 +1,16 @@
 "use client";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 import logoIcon from "@/assets/image/logo.png";
 import Image from "next/image";
 import { useCart } from "@/hook/CartContext";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { useHeader } from "@/hook/HeaderContext";
+import Link from "next/link";
 export const Header = () => {
-  const [selectedMenu, setSelectedMenu] = useState<string | null>("menu1");
   const { totalItemOfCart, handleShowCartDetail } = useCart();
+
+  const { currentPage, setCurrentPage } = useHeader();
 
   return (
     <div className="bg-[rgba(64,121,176,255)] ">
@@ -17,43 +19,45 @@ export const Header = () => {
           <Image src={logoIcon} width={80} height={80} alt="Logo Icon" />
         </div>
         <div className="flex justify-center items-center gap-[50px] text-[17px]">
-          <div
+          <Link
+            href="/home"
             className={`menu-hover ${
-              selectedMenu === "menu1" ? "header-selection" : ""
+              currentPage === "menu1" ? "header-selection" : ""
             }`}
-            onClick={() => setSelectedMenu("menu1")}
+            onClick={() => setCurrentPage("menu1")}
           >
             Về Chúng Tôi
-          </div>
+          </Link>
           <div
             className={`menu-hover ${
-              selectedMenu === "menu2" ? "header-selection" : ""
+              currentPage === "menu2" ? "header-selection" : ""
             }`}
-            onClick={() => setSelectedMenu("menu2")}
+            onClick={() => setCurrentPage("menu2")}
           >
             Menu
           </div>
-          <div
+          <Link
+            href="/ship"
             className={`menu-hover ${
-              selectedMenu === "menu3" ? "header-selection" : ""
+              currentPage === "menu3" ? "header-selection" : ""
             }`}
-            onClick={() => setSelectedMenu("menu3")}
+            onClick={() => setCurrentPage("menu3")}
           >
             Đặt Ship
-          </div>
+          </Link>
           <div
             className={`menu-hover ${
-              selectedMenu === "menu5" ? "header-selection" : ""
+              currentPage === "menu5" ? "header-selection" : ""
             }`}
-            onClick={() => setSelectedMenu("menu5")}
+            onClick={() => setCurrentPage("menu5")}
           >
             Tin Tức
           </div>
           <div
             className={`menu-hover ${
-              selectedMenu === "menu6" ? "header-selection" : ""
+              currentPage === "menu6" ? "header-selection" : ""
             }`}
-            onClick={() => setSelectedMenu("menu6")}
+            onClick={() => setCurrentPage("menu6")}
           >
             Liên Hệ
           </div>
