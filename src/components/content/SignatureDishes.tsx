@@ -75,7 +75,7 @@ export const SignatureDishes = () => {
               key={item.id}
               className="flex-shrink-0 pt-[20px] rounded-[30px] shadow-2xl bg-white border border-gray-300"
             >
-              <div className="w-[300px h-[400px] relative mx-auto">
+              <div className="h-[400px] relative mx-auto">
                 <Image
                   src={item.image}
                   layout="fill"

@@ -1,6 +1,6 @@
 export const ShippingInfo = () => {
   return (
-    <div className="max-w-[600px] bg-white border border-gray-300 shadow-md rounded-lg">
+    <div className="max-w-[600px] bg-white border border-gray-300 shadow-md rounded-lg h-fit">
       <h2 className="text-l font-semibold text-white bg-topicColor p-[15px]">
         THÔNG TIN THANH TOÁN
       </h2>
