@@ -86,15 +86,13 @@ export const ConfirmOrders = () => {
           </div>
           {selectedOption === "card" && (
             <div>
-              <div>
-                <Image
-                  width={300}
-                  height={300}
-                  src={QRCode}
-                  alt="qr_image"
-                  className="mx-auto"
-                />
-              </div>
+              <Image
+                width={300}
+                height={300}
+                src={QRCode}
+                alt="qr_image"
+                className="mx-auto"
+              />
               <div className="flex flex-col gap-[15px] mt-[20px] p-4">
                 <div>
                   Chủ TK: <strong>Vũ Lê Minh</strong>

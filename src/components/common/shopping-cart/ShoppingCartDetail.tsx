@@ -109,7 +109,14 @@ export const ShoppingCartDetail = () => {
           >
             THÊM MÓN
           </button>
-          <button className="inline-block w-[50%] py-[10px] text-[15px] text-white text-topicColor border-2 bg-topicColor border-topicColor rounded-lg  text-center ">
+          <button
+            className={`inline-block w-[50%] py-[10px] text-[15px] ${
+              cart.items.length > 0
+                ? "text-white bg-topicColor border-topicColor"
+                : "text-gray-400 bg-gray-200 border-gray-200"
+            } border-2 rounded-lg text-center`}
+            disabled={cart.items.length === 0}
+          >
             THANH TOÁN
           </button>
         </div>
