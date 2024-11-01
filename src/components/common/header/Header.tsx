@@ -28,14 +28,15 @@ export const Header = () => {
           >
             Về Chúng Tôi
           </Link>
-          <div
+          <Link
+            href="/menu"
             className={`menu-hover ${
               currentPage === "menu2" ? "header-selection" : ""
             }`}
             onClick={() => setCurrentPage("menu2")}
           >
             Menu
-          </div>
+          </Link>
           <Link
             href="/ship"
             className={`menu-hover ${
