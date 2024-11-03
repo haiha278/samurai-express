@@ -73,7 +73,7 @@ export const Header = () => {
               className="text-white text-[25px]"
             />
             <div className=" bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">
-              {totalItemOfCart()}
+              {totalItemOfCart() ?? 0}
             </div>
           </div>
           <FontAwesomeIcon icon={faPhone} className="text-white mr-[10px]" />

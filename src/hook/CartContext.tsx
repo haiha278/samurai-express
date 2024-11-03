@@ -137,7 +137,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  const totalItemOfCart = () => {
+  function totalItemOfCart () {
     return state.items.reduce((total, item) => total + (item.quantity || 1), 0);
   };
 

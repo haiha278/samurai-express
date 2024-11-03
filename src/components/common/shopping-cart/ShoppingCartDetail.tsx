@@ -58,7 +58,7 @@ export const ShoppingCartDetail = () => {
                   </button>
                 </div>
                 <div className="text-[20px]">
-                  {totalPriceOfEachItem(item).toLocaleString("vi-VN", {
+                  {(totalPriceOfEachItem(item) ?? 0).toLocaleString("vi-VN", {
                     style: "currency",
                     currency: "VND",
                   })}
@@ -79,7 +79,7 @@ export const ShoppingCartDetail = () => {
             <div className="flex justify-between">
               <div className="font-bold text-[20px]">Tiền Hàng</div>
               <div className="font-bold text-[20px]">
-                {totalPriceOfAllItem()}
+                {totalPriceOfAllItem() ?? 0}
               </div>
             </div>
             <div className="flex justify-between mt-[10px]">
@@ -97,10 +97,10 @@ export const ShoppingCartDetail = () => {
           <div className="flex gap-[10px] items-center">
             <div className="font-bold text-[20px]">TỔNG</div>
             <div className="bg-topicColor text-white font-semibold py-[5px] px-[10px] rounded-[10px] ">
-              {totalItemOfCart()} MÓN
+              {totalItemOfCart() ?? 0} MÓN
             </div>
           </div>
-          <div className="font-bold text-[27px]">{totalPriceOfAllItem()}</div>
+          <div className="font-bold text-[27px]">{totalPriceOfAllItem() ?? 0}</div>
         </div>
         <div className="flex gap-[10px] justify-center items-center">
           <button
