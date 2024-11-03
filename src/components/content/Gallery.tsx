@@ -31,7 +31,7 @@ export const Gallery = () => {
       </div>
       <div className="grid grid-cols-4 gap-[10px] w-[80%] mx-auto mb-[50px]">
         {images.map((image) => (
-          <div>
+          <div key={image.id}>
             <Image
               src={image.image}
               width={400}
