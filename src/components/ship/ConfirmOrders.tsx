@@ -48,7 +48,7 @@ export const ConfirmOrders = () => {
               Tạm Tính
             </div>
             <div className="text-red-600 font-semibold">
-              {totalPriceOfAllItem()}
+              {totalPriceOfAllItem() ?? 0}
             </div>
           </div>
           <div className="flex p-4 justify-between items-center">
@@ -56,7 +56,7 @@ export const ConfirmOrders = () => {
               Tổng
             </div>
             <div className="text-red-600 font-semibold">
-              {totalPriceOfAllItem()}
+              {totalPriceOfAllItem() ?? 0}
             </div>
           </div>
           <div className="px-4 mt-8 text-base">
