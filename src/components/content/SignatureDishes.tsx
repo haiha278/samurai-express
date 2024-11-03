@@ -1,7 +1,7 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { SwiperNivation } from "../swiper/SwiperNavigation";
 import Menu1 from "@/assets/image/menu1.png";
 import Menu2 from "@/assets/image/menu2.png";
@@ -26,7 +26,7 @@ interface Item {
   id: number;
   name: string;
   price: number;
-  image: string;
+  image: string | StaticImageData;
 }
 
 const items: Item[] = [
@@ -56,7 +56,8 @@ export const SignatureDishes = () => {
   const { addItemToCart } = useCart();
 
   const handleAddToCart = (item: Item) => {
-    addItemToCart(item);
+    const formattedItem = { ...item, image: typeof item.image === 'object' ? item.image.src : item.image };
+    addItemToCart(formattedItem);
   };
 
   return (
