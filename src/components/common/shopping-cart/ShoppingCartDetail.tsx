@@ -27,7 +27,7 @@ export const ShoppingCartDetail = () => {
       <div className="flex-grow overflow-y-auto custom-scrollbar">
         {cart.items.length > 0 ? (
           cart.items.map((item) => (
-            <div className="border-b border-gray-300 pb-[10px] mt-[30px] mr-[20px]">
+            <div key={item.id} className="border-b border-gray-300 pb-[10px] mt-[30px] mr-[20px]">
               <div className="flex items-center justify-between mb-[1px]">
                 <div className="font-bold text-[20px] w-[300px]">
                   {item.name}
