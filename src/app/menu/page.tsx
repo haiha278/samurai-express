@@ -2,6 +2,7 @@
 import { Footer } from "@/components/common/footer/Footer";
 import { Header } from "@/components/common/header/Header";
 import { ShoppingCartDetail } from "@/components/common/shopping-cart/ShoppingCartDetail";
+import { Menu } from "@/components/menu/Menu";
 import { useCart } from "@/hook/CartContext";
 export default function Ship() {
   const { showCartDetail, handleShowCartDetail } = useCart();
@@ -10,16 +11,11 @@ export default function Ship() {
     <div className="relative ">
       <div className="fixed w-full top-0 left-0 z-[1000]">
         <Header />
+        <Menu />
       </div>
-      <div className="bg-[rgba(247,242,238,255)] mt-[80px]">
-        {/* <div>
-          <ShippingCost />
-        </div>
-        <div className="flex justify-center gap-[50px] p-[50px]">
-          <ShippingInfo />
-          <ConfirmOrders />
-        </div> */}
-      </div>
+      {/* <div className="bg-[rgba(247,242,238,255)] mt-[80px]">
+        <Menu />
+      </div> */}
       {showCartDetail && (
         <>
           <div
@@ -31,9 +27,9 @@ export default function Ship() {
           </div>
         </>
       )}
-      <div>
+      {/* <div>
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -3,7 +3,6 @@ import { Footer } from "@/components/common/footer/Footer";
 import { Header } from "@/components/common/header/Header";
 import { ShoppingCartDetail } from "@/components/common/shopping-cart/ShoppingCartDetail";
 import { ConfirmOrders } from "@/components/ship/ConfirmOrders";
-import { ShippingCost } from "@/components/ship/ShippingCost";
 import { ShippingInfo } from "@/components/ship/ShippingInfo";
 import { useCart } from "@/hook/CartContext";
 import { useEffect } from "react";
@@ -28,8 +27,8 @@ export default function Ship() {
         <Header />
       </div>
       <div className="bg-[rgba(247,242,238,255)] mt-[80px]">
-        <div>
-          <ShippingCost />
+        <div className="text-center pt-[20px] text-[40px] text-topicColor">
+          Đặt Ship
         </div>
         <div className="flex justify-center gap-[50px] p-[50px]">
           <ShippingInfo />

@@ -21,13 +21,7 @@ import Menu15 from "@/assets/image/menu15.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "@/hook/CartContext";
-
-interface Item {
-  id: number;
-  name: string;
-  price: number;
-  image: string | StaticImageData;
-}
+import { Item } from "@/resources/interface";
 
 const items: Item[] = [
   { id: 1, name: "Wakame Salad", price: 49000, image: Menu11 },
@@ -56,7 +50,10 @@ export const SignatureDishes = () => {
   const { addItemToCart } = useCart();
 
   const handleAddToCart = (item: Item) => {
-    const formattedItem = { ...item, image: typeof item.image === 'object' ? item.image.src : item.image };
+    const formattedItem = {
+      ...item,
+      image: typeof item.image === "object" ? item.image.src : item.image,
+    };
     addItemToCart(formattedItem);
   };
 

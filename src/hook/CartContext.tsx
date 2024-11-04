@@ -86,11 +86,11 @@ const CartContext = createContext<
       addItemToCart: (item: Item) => void;
       removeItemFromCart: (id: number) => void;
       clearCart: () => void;
-      totalItemOfCart: () => void;
+      totalItemOfCart: () => number;
       handleShowCartDetail: () => void;
       showCartDetail: boolean;
-      totalPriceOfEachItem: (item: Item) => void;
-      totalPriceOfAllItem: () => void;
+      totalPriceOfEachItem: (item: Item) => number;
+      totalPriceOfAllItem: () => string;
       decreaseQuantityOfExistItem: (item: Item) => void;
     }
   | undefined
@@ -137,9 +137,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  function totalItemOfCart () {
+  function totalItemOfCart() {
     return state.items.reduce((total, item) => total + (item.quantity || 1), 0);
-  };
+  }
 
   useEffect(() => {}, [state.items]); // Sử dụng useEffect để theo dõi thay đổi trong state.items
 
