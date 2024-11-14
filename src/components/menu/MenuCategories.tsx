@@ -18,7 +18,9 @@ export const MenuCategory = () => {
           {menuCategory.map((item) => (
             <SwiperSlide
               key={item.id}
-              className="rounded-[30px] shadow-lg bg-white border border-gray-300 cursor-pointer mt-[30px]"
+              className={`rounded-[30px] shadow-lg bg-white border border-gray-300 cursor-pointer mt-[30px] ${
+                selectedCategory === item.name ? "bg-blue-200" : ""
+              }`}
               onClick={() => handleSelectCategory(item.name)}
             >
               <div className="p-[20px] flex text-center justify-center items-center gap-[20px]">
