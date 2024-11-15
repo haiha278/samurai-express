@@ -2,20 +2,26 @@
 import { Footer } from "@/components/common/footer/Footer";
 import { Header } from "@/components/common/header/Header";
 import { ShoppingCartDetail } from "@/components/common/shopping-cart/ShoppingCartDetail";
-import { Menu } from "@/components/menu/Menu";
+import { CategoryDetail } from "@/components/menu/CategoryDetail";
+import { MenuCategory } from "@/components/menu/MenuCategories";
 import { useCart } from "@/hook/CartContext";
+import { useState } from "react";
 export default function Ship() {
   const { showCartDetail, handleShowCartDetail } = useCart();
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
 
   return (
     <div className="relative ">
       <div className="fixed w-full top-0 left-0 z-[1000]">
         <Header />
-        <Menu />
+        <MenuCategory
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
       </div>
-      {/* <div className="bg-[rgba(247,242,238,255)] mt-[80px]">
-        <Menu />
-      </div> */}
+      <div className="mt-[200px]">
+        <CategoryDetail selectedCategory={selectedCategory} />
+      </div>
       {showCartDetail && (
         <>
           <div
@@ -27,9 +33,9 @@ export default function Ship() {
           </div>
         </>
       )}
-      {/* <div>
+      <div>
         <Footer />
-      </div> */}
+      </div>
     </div>
   );
 }
