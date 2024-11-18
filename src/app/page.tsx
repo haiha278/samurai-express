@@ -8,7 +8,7 @@ export default function Home() {
   const { showCartDetail } = useCart();
   useEffect(() => {
     router.push("/home");
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     if (showCartDetail) {

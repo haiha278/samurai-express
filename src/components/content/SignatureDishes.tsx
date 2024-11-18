@@ -1,7 +1,7 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { SwiperNivation } from "../swiper/SwiperNavigation";
 import Menu1 from "@/assets/image/menu1.png";
 import Menu2 from "@/assets/image/menu2.png";
