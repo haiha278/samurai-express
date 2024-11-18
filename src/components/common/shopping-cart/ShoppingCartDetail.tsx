@@ -2,7 +2,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "@/hook/CartContext";
+import { useRouter } from "next/navigation";
 export const ShoppingCartDetail = () => {
+  const router = useRouter();
   const {
     handleShowCartDetail,
     cart,
@@ -13,6 +15,14 @@ export const ShoppingCartDetail = () => {
     addItemToCart,
     decreaseQuantityOfExistItem,
   } = useCart();
+
+  const handleCheckOut = () => {
+    if (cart.items.length > 0) {
+      router.push("/ship");
+      handleShowCartDetail();
+    }
+  };
+
   return (
     <div className="p-[20px] flex flex-col h-full">
       <div className="flex items-center justify-between border-b border-gray-300 pb-[5px]">
@@ -27,7 +37,10 @@ export const ShoppingCartDetail = () => {
       <div className="flex-grow overflow-y-auto custom-scrollbar">
         {cart.items.length > 0 ? (
           cart.items.map((item) => (
-            <div key={item.id} className="border-b border-gray-300 pb-[10px] mt-[30px] mr-[20px]">
+            <div
+              key={item.id}
+              className="border-b border-gray-300 pb-[10px] mt-[30px] mr-[20px]"
+            >
               <div className="flex items-center justify-between mb-[1px]">
                 <div className="font-bold text-[20px] w-[300px]">
                   {item.name}
@@ -100,7 +113,9 @@ export const ShoppingCartDetail = () => {
               {totalItemOfCart() ?? 0} MÓN
             </div>
           </div>
-          <div className="font-bold text-[27px]">{totalPriceOfAllItem() ?? 0}</div>
+          <div className="font-bold text-[27px]">
+            {totalPriceOfAllItem() ?? 0}
+          </div>
         </div>
         <div className="flex gap-[10px] justify-center items-center">
           <button
@@ -116,6 +131,7 @@ export const ShoppingCartDetail = () => {
                 : "text-gray-400 bg-gray-200 border-gray-200"
             } border-2 rounded-lg text-center`}
             disabled={cart.items.length === 0}
+            onClick={handleCheckOut}
           >
             THANH TOÁN
           </button>

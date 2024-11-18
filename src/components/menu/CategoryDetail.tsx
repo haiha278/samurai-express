@@ -27,6 +27,43 @@ interface CategoryDetailProps {
 export const CategoryDetail = ({ selectedCategory }: CategoryDetailProps) => {
   const { addItemToCart } = useCart();
 
+  const renderItems = (items: Item[]) => {
+    return items.map((item) => (
+      <SwiperSlide
+        key={item.id}
+        className="shadow-lg bg-white border cursor-pointer my-[50px]"
+      >
+        <div className="h-[500px] w-full relative mx-auto">
+          <Image
+            src={item.image}
+            layout="fill"
+            objectFit="cover"
+            alt={item.name}
+            className="mx-auto rounded-lg shadow-md"
+          />
+        </div>
+        <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
+          <div>
+            <div className="text-[20px] font-bold">{item.name}</div>
+            <div className="mt-[20px] text-[20px]">
+              {item.price.toLocaleString("vi-VN", {
+                style: "currency",
+                currency: "VND",
+              })}
+            </div>
+          </div>
+          <div>
+            <FontAwesomeIcon
+              icon={faShoppingCart}
+              onClick={() => handleAddToCart(item)}
+              className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
+            />
+          </div>
+        </div>
+      </SwiperSlide>
+    ));
+  };
+
   const handleAddToCart = (item: Item) => {
     const formattedItem = {
       ...item,
@@ -37,449 +74,44 @@ export const CategoryDetail = ({ selectedCategory }: CategoryDetailProps) => {
 
   const renderMenuItems = () => {
     switch (selectedCategory) {
-      case "Appetizer":
-        return appetizer.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-            }`}
-          >
-            <div className="h-[550px] relative mx-auto">
-              <Image
-                src={item.image}
-                layout="fill"
-                objectFit="cover"
-                alt={item.name}
-                className="mx-auto"
-              />
-            </div>
-            <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-              <div>
-                <div className="text-[20px] font-bold ">{item.name}</div>
-                <div className="mt-[20px] text-[20px]">
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </div>
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ));
+      case "Khai Vị":
+        return renderItems(appetizer);
 
       case "Salad":
-        return salad.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-              }`}
-          >
-            <div className="h-[550px] relative mx-auto">
-              <Image
-                src={item.image}
-                layout="fill"
-                objectFit="cover"
-                alt={item.name}
-                className="mx-auto"
-              />
-            </div>
-            <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-              <div>
-                <div className="text-[20px] font-bold ">{item.name}</div>
-                <div className="mt-[20px] text-[20px]">
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </div>
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ));
+        return renderItems(salad);
 
-      case "Rice":
-        return rice.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-              }`}
-          >
-            <div className="h-[550px] relative mx-auto">
-              <Image
-                src={item.image}
-                layout="fill"
-                objectFit="cover"
-                alt={item.name}
-                className="mx-auto"
-              />
-            </div>
-            <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-              <div>
-                <div className="text-[20px] font-bold ">{item.name}</div>
-                <div className="mt-[20px] text-[20px]">
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </div>
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ));
+      case "Cơm":
+        return renderItems(rice);
 
       case "Sashimi":
-        return sashimi.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-              }`}
-          >
-            <div className="h-[550px] relative mx-auto">
-              <Image
-                src={item.image}
-                layout="fill"
-                objectFit="cover"
-                alt={item.name}
-                className="mx-auto"
-              />
-            </div>
-            <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-              <div>
-                <div className="text-[20px] font-bold ">{item.name}</div>
-                <div className="mt-[20px] text-[20px]">
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </div>
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ));
+        return renderItems(sashimi);
 
       case "Sushi":
-        return sushi.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-              }`}
-          >
-            <div className="h-[550px] relative mx-auto">
-              <Image
-                src={item.image}
-                layout="fill"
-                objectFit="cover"
-                alt={item.name}
-                className="mx-auto"
-              />
-            </div>
-            <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-              <div>
-                <div className="text-[20px] font-bold ">{item.name}</div>
-                <div className="mt-[20px] text-[20px]">
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </div>
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ));
+        return renderItems(sushi);
 
       case "California Roll":
-        return californiaRoll.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-              }`}
-          >
-            <div className="h-[550px] relative mx-auto">
-              <Image
-                src={item.image}
-                layout="fill"
-                objectFit="cover"
-                alt={item.name}
-                className="mx-auto"
-              />
-            </div>
-            <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-              <div>
-                <div className="text-[20px] font-bold ">{item.name}</div>
-                <div className="mt-[20px] text-[20px]">
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </div>
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ));
+        return renderItems(californiaRoll);
 
       case "Maki":
-        return maki.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-              }`}
-          >
-            <div className="h-[550px] relative mx-auto">
-              <Image
-                src={item.image}
-                layout="fill"
-                objectFit="cover"
-                alt={item.name}
-                className="mx-auto"
-              />
-            </div>
-            <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-              <div>
-                <div className="text-[20px] font-bold ">{item.name}</div>
-                <div className="mt-[20px] text-[20px]">
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </div>
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ));
+        return renderItems(maki);
 
       case "Nigiri":
-        return nigiri.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-              }`}
-          >
-            <div className="h-[550px] relative mx-auto">
-              <Image
-                src={item.image}
-                layout="fill"
-                objectFit="cover"
-                alt={item.name}
-                className="mx-auto"
-              />
-            </div>
-            <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-              <div>
-                <div className="text-[20px] font-bold ">{item.name}</div>
-                <div className="mt-[20px] text-[20px]">
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </div>
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ));
+        return renderItems(nigiri);
 
       case "Gunkan":
-        return gunkan.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-              }`}
-          >
-            <div className="h-[550px] relative mx-auto">
-              <Image
-                src={item.image}
-                layout="fill"
-                objectFit="cover"
-                alt={item.name}
-                className="mx-auto"
-              />
-            </div>
-            <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-              <div>
-                <div className="text-[20px] font-bold ">{item.name}</div>
-                <div className="mt-[20px] text-[20px]">
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </div>
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ));
+        return renderItems(gunkan);
 
       case "Combo":
-        return combo.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-              }`}
-          >
-            <div className="h-[550px] relative mx-auto">
-              <Image
-                src={item.image}
-                layout="fill"
-                objectFit="cover"
-                alt={item.name}
-                className="mx-auto"
-              />
-            </div>
-            <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-              <div>
-                <div className="text-[20px] font-bold ">{item.name}</div>
-                <div className="mt-[20px] text-[20px]">
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </div>
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ));
+        return renderItems(combo);
 
-      case "Drinks":
-        return drinks.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-              }`}
-          >
-            <div className="h-[550px] relative mx-auto">
-              <Image
-                src={item.image}
-                layout="fill"
-                objectFit="cover"
-                alt={item.name}
-                className="mx-auto"
-              />
-            </div>
-            <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-              <div>
-                <div className="text-[20px] font-bold ">{item.name}</div>
-                <div className="mt-[20px] text-[20px]">
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </div>
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ));
+      case "Đồ Uống":
+        return renderItems(drinks);
 
-      case "Dessert":
-        return dessert.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-              }`}
-          >
-            <div className="h-[550px] relative mx-auto">
-              <Image
-                src={item.image}
-                layout="fill"
-                objectFit="cover"
-                alt={item.name}
-                className="mx-auto"
-              />
-            </div>
-            <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-              <div>
-                <div className="text-[20px] font-bold ">{item.name}</div>
-                <div className="mt-[20px] text-[20px]">
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </div>
-              </div>
-              <div>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  onClick={() => handleAddToCart(item)}
-                  className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ));
+      case "Tráng Miệng":
+        return renderItems(dessert);
+
+      default:
+        return null;
     }
   };
 
@@ -488,41 +120,6 @@ export const CategoryDetail = ({ selectedCategory }: CategoryDetailProps) => {
       <div className="w-[60%] relative swiper-parent-component text-black mx-auto">
         <Swiper spaceBetween={20} slidesPerView={1} className="w-[60%]">
           <SwiperNivation />
-          {/* {appetizer.map((item) => (
-            <SwiperSlide
-              key={item.id}
-              className={`shadow-lg bg-white border cursor-pointer my-[50px] 
-              }`}
-            >
-              <div className="h-[550px] relative mx-auto">
-                <Image
-                  src={item.image}
-                  layout="fill"
-                  objectFit="cover"
-                  alt={item.name}
-                  className="mx-auto"
-                />
-              </div>
-              <div className="p-[20px] flex justify-between items-center gap-[20px] mt-[30px]">
-                <div>
-                  <div className="text-[20px] font-bold ">{item.name}</div>
-                  <div className="mt-[20px] text-[20px]">
-                    {item.price.toLocaleString("vi-VN", {
-                      style: "currency",
-                      currency: "VND",
-                    })}
-                  </div>
-                </div>
-                <div>
-                  <FontAwesomeIcon
-                    icon={faShoppingCart}
-                    onClick={() => handleAddToCart(item)}
-                    className="text-gray-600 text-[25px] hover:cursor-pointer transform-gpu hover:translate-y-[-10px]"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-          ))} */}
           {renderMenuItems()}
         </Swiper>
       </div>

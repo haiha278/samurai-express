@@ -2,7 +2,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperNivation } from "../swiper/SwiperNavigation";
 import { menuCategory } from "@/resources/data";
-import { useState } from "react";
 
 interface MenuCategoriesProps {
   selectedCategory: string;

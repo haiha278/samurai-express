@@ -1,37 +1,37 @@
 import MainMenu1 from "@/assets/image/MainMenu1.png";
 import MainMenu2 from "@/assets/image/MainMenu2.png";
-import MainMenu3 from "@/assets/image/MainMenu2.png";
-import MainMenu4 from "@/assets/image/MainMenu2.png";
-import MainMenu5 from "@/assets/image/MainMenu2.png";
-import MainMenu6 from "@/assets/image/MainMenu2.png";
-import MainMenu7 from "@/assets/image/MainMenu2.png";
-import MainMenu8 from "@/assets/image/MainMenu2.png";
-import MainMenu9 from "@/assets/image/MainMenu2.png";
-import MainMenu10 from "@/assets/image/MainMenu2.png";
-import MainMenu11 from "@/assets/image/MainMenu2.png";
-import MainMenu12 from "@/assets/image/MainMenu2.png";
-import MainMenu13 from "@/assets/image/MainMenu2.png";
-import MainMenu14 from "@/assets/image/MainMenu2.png";
-import MainMenu15 from "@/assets/image/MainMenu2.png";
-import MainMenu16 from "@/assets/image/MainMenu2.png";
-import MainMenu17 from "@/assets/image/MainMenu2.png";
-import MainMenu18 from "@/assets/image/MainMenu2.png";
-import MainMenu19 from "@/assets/image/MainMenu2.png";
-import MainMenu20 from "@/assets/image/MainMenu2.png";
-import MainMenu21 from "@/assets/image/MainMenu2.png";
-import MainMenu22 from "@/assets/image/MainMenu2.png";
-import MainMenu23 from "@/assets/image/MainMenu2.png";
-import MainMenu24 from "@/assets/image/MainMenu2.png";
-import MainMenu25 from "@/assets/image/MainMenu2.png";
-import MainMenu26 from "@/assets/image/MainMenu2.png";
-import MainMenu27 from "@/assets/image/MainMenu2.png";
-import MainMenu28 from "@/assets/image/MainMenu2.png";
+import MainMenu3 from "@/assets/image/MainMenu3.png";
+import MainMenu4 from "@/assets/image/MainMenu4.png";
+import MainMenu5 from "@/assets/image/MainMenu5.png";
+import MainMenu6 from "@/assets/image/MainMenu6.png";
+import MainMenu7 from "@/assets/image/MainMenu7.png";
+import MainMenu8 from "@/assets/image/MainMenu8.png";
+import MainMenu9 from "@/assets/image/MainMenu9.png";
+import MainMenu10 from "@/assets/image/MainMenu10.png";
+import MainMenu11 from "@/assets/image/MainMenu11.png";
+import MainMenu12 from "@/assets/image/MainMenu12.png";
+import MainMenu13 from "@/assets/image/MainMenu13.png";
+import MainMenu14 from "@/assets/image/MainMenu14.png";
+import MainMenu15 from "@/assets/image/MainMenu15.png";
+import MainMenu16 from "@/assets/image/MainMenu16.png";
+import MainMenu17 from "@/assets/image/MainMenu17.png";
+import MainMenu18 from "@/assets/image/MainMenu18.png";
+import MainMenu19 from "@/assets/image/MainMenu19.png";
+import MainMenu20 from "@/assets/image/MainMenu20.png";
+import MainMenu21 from "@/assets/image/MainMenu21.png";
+import MainMenu22 from "@/assets/image/MainMenu22.png";
+import MainMenu23 from "@/assets/image/MainMenu23.png";
+import MainMenu24 from "@/assets/image/MainMenu24.png";
+import MainMenu25 from "@/assets/image/MainMenu25.png";
+import MainMenu26 from "@/assets/image/MainMenu26.png";
+import MainMenu27 from "@/assets/image/MainMenu27.png";
+import MainMenu28 from "@/assets/image/MainMenu28.png";
 import { Item, MenuCategory } from "./interface";
 
 export const menuCategory: MenuCategory[] = [
-  { id: 1, name: "Appetizer" },
+  { id: 1, name: "Khai Vị" },
   { id: 2, name: "Salad" },
-  { id: 3, name: "Rice" },
+  { id: 3, name: "Cơm" },
   { id: 4, name: "Sashimi" },
   { id: 5, name: "Sushi" },
   { id: 6, name: "California Roll" },
@@ -39,8 +39,8 @@ export const menuCategory: MenuCategory[] = [
   { id: 8, name: "Nigiri" },
   { id: 9, name: "Gunkan" },
   { id: 10, name: "Combo" },
-  { id: 11, name: "Drinks" },
-  { id: 12, name: "Dessert" },
+  { id: 11, name: "Đồ Uống" },
+  { id: 12, name: "Tráng Miệng" },
 ];
 
 export const appetizer: Item[] = [

@@ -8,7 +8,7 @@ import { useCart } from "@/hook/CartContext";
 import { useState } from "react";
 export default function Ship() {
   const { showCartDetail, handleShowCartDetail } = useCart();
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("Khai Vị");
 
   return (
     <div className="relative ">
